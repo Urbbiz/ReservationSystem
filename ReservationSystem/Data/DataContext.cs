@@ -7,8 +7,10 @@ using System.Web;
 
 namespace ReservationSystem.Data
 {
-    public class DataContext : DbContext
+    public class DataContext : DbContext, IDataContext
     {
+        
+
         public DbSet<Reservation> Reservations { get; set; }
     }
 }
