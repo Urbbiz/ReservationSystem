@@ -17,6 +17,11 @@ namespace ReservationSystem.Repositories
             _context = context;
         }
 
+        public List<Reservation> GetAll()
+        {
+            return _context.Reservations.ToList();
+        }
+
         public async Task Post(Reservation reservation)
         {
             _context.Reservations.Add(reservation);

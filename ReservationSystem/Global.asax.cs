@@ -14,6 +14,7 @@ namespace ReservationSystem
         {
             AreaRegistration.RegisterAllAreas();
             UnityConfig.RegisterComponents();
+            //AutofaqConfig.Configure();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

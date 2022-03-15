@@ -23,7 +23,9 @@ namespace ReservationSystem.Controllers
         // GET: Reservation
         public ActionResult Index()
         {
-            return View();
+            var reservations = _repository.GetAll();
+            
+            return View(reservations);
         }
 
         public ActionResult Post()
