@@ -45,5 +45,50 @@ namespace ReservationSystem.Controllers
 
             return View(model);
         }
+
+       public async Task<ActionResult> Edit(int id)
+        {
+
+            var reservationById = await _repository.GetById(id);
+            return View(reservationById);
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit (int id, Reservation reservation)
+        {
+            if (id != reservation.Id)
+            {
+                return HttpNotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                await _repository.Edit(reservation);
+                return RedirectToAction("Index");
+            }
+
+            var reservationById = await _repository.GetById(id);
+            return View(reservationById);
+
+        }
+
+
+        public async Task<ActionResult> Details(int id)
+        {
+            var reservationById = await _repository.GetById(id);
+            return View(reservationById);
+        }
+
+        public async Task<ActionResult> Delete(int id)
+        {
+            if(id == 0)
+            {
+                return HttpNotFound();
+            }
+
+            await _repository.Delete(id);
+            return RedirectToAction("Index");   
+        }
     }
 }
