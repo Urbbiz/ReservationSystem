@@ -1,5 +1,6 @@
 ﻿using ReservationSystem.Data;
 using ReservationSystem.Models;
+using ReservationSystem.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,12 @@ namespace ReservationSystem.Repositories
     public class ReservationRepository
     {
         private readonly DataContext _context;
+        private readonly ReservationService _service;
 
-        public ReservationRepository(DataContext context)
+        public ReservationRepository(DataContext context, ReservationService service)
         {
             _context = context;
+            _service = service;
         }
 
         public List<Reservation> GetAll()
@@ -30,6 +33,8 @@ namespace ReservationSystem.Repositories
 
         public async Task Post(Reservation reservation)
         {
+            reservation.ReservationNumber = _service.ReservationNumbGenerator();
+
             _context.Reservations.Add(reservation);
             await _context.SaveChangesAsync();
         }

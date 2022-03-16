@@ -178,10 +178,15 @@
     <Compile Include="Migrations\202203121016226_Init.designer.cs">
       <DependentUpon>202203121016226_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203160758224_reservation.cs" />
+    <Compile Include="Migrations\202203160758224_reservation.designer.cs">
+      <DependentUpon>202203160758224_reservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\ReservationRepository.cs" />
+    <Compile Include="Services\ReservationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -243,6 +248,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202203121016226_Init.resx">
       <DependentUpon>202203121016226_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203160758224_reservation.resx">
+      <DependentUpon>202203160758224_reservation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

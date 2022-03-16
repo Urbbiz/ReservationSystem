@@ -1,5 +1,6 @@
 ﻿using ReservationSystem.Models;
 using ReservationSystem.Repositories;
+using ReservationSystem.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,15 @@ namespace ReservationSystem.Controllers
     {
 
         private readonly ReservationRepository _repository;
+        private readonly ReservationService _service;
 
-        public ReservationController(ReservationRepository repository)
+        public ReservationController(ReservationRepository repository, ReservationService service)
         {
             _repository = repository;
+            _service = service;
         }
+
+
 
 
         // GET: Reservation
@@ -39,6 +44,7 @@ namespace ReservationSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 await _repository.Post(model);
                 return RedirectToAction("Index");
             }

@@ -1,5 +1,6 @@
 using ReservationSystem.Data;
 using ReservationSystem.Repositories;
+using ReservationSystem.Services;
 using System.Web.Mvc;
 using Unity;
 using Unity.Mvc5;
@@ -18,6 +19,7 @@ namespace ReservationSystem
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<IDataContext, DataContext > ();
             container.RegisterType<ReservationRepository>();
+            container.RegisterType<ReservationService>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
