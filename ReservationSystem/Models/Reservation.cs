@@ -13,10 +13,10 @@ namespace ReservationSystem.Models
         public string Surname { get; set; }
 
         public DateTime Arrival { get; set; }
-        public DateTimeOffset Departure { get; set; }
+        public DateTime Departure { get; set; }
 
         public int PersonsCount { get; set; }
 
-        public int ReservationNumber { get; set; }
+        public string ReservationNumber { get; set; }
     }
 }
